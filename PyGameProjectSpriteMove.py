@@ -136,7 +136,8 @@ else:
             if c == 1 and self.pokeballs > 0:
                 return self.choose_pokemon()
             if c == 1 and self.pokeballs == 0:
-                return "here may be pokemon, but it run away, because you haven't pokeball"
+                return ["There could have been a pokemon here",
+                        "but it ran away because you don't have a pokeball"]
             if c == 2 and self.pokemons:
                 skill = choice([10, 10, 20, 10, 20, 30, 10, 50])
                 e = choice(self.pokemons)
@@ -153,7 +154,8 @@ else:
                     for e in self.pokemons:
                         if e.name_pokemon() == "bulbasauvr":
                             self.append_skill(e, 30)
-                            return "You have this pokemon, your pokemon get +30"
+                            return ["You have a Pokemon that came across,",
+                                    " he sent his kinsman greetings and +30"]
                 self.pokemons.append(PyGameProjectPokemons
                                      .Bulbasaur(self.rect.x, self.rect.y, pokemons_group, all_sprites))
             if c == 2:
@@ -161,7 +163,8 @@ else:
                     for e in self.pokemons:
                         if e.name_pokemon() == "charmander":
                             self.append_skill(e, 30)
-                            return "You have this pokemon, your pokemon get +30"
+                            return ["You have a Pokemon that came across,",
+                                    " he sent his kinsman greetings and +30"]
                 self.pokemons.append(PyGameProjectPokemons
                                      .Charmander(self.rect.x, self.rect.y, pokemons_group, all_sprites))
             if c == 3:
@@ -169,7 +172,8 @@ else:
                     for e in self.pokemons:
                         if e.name_pokemon() == "squrtle":
                             self.append_skill(e, 30)
-                            return "You have this pokemon, your pokemon get +30"
+                            return ["You have a Pokemon that came across,",
+                                    " he sent his kinsman greetings and +30"]
                 self.pokemons.append(PyGameProjectPokemons
                                      .Squrtle(self.rect.x, self.rect.y, pokemons_group, all_sprites))
             if c == 4:
@@ -177,7 +181,8 @@ else:
                     for e in self.pokemons:
                         if e.name_pokemon() == "pikachu":
                             self.append_skill(e, 30)
-                    return "You have this pokemon, your pokemon get +30"
+                    return ["You have a Pokemon that came across,",
+                                    " he sent his kinsman greetings and +30"]
                 self.pokemons.append(PyGameProjectPokemons
                                      .Pikachu(self.rect.x, self.rect.y, pokemons_group, all_sprites))
             if c == 5:
@@ -185,7 +190,8 @@ else:
                     for e in self.pokemons:
                         if e.name_pokemon() == "spearow":
                             self.append_skill(e, 30)
-                    return "You have this pokemon, your pokemon get +30"
+                    return ["You have a Pokemon that came across,",
+                                    " he sent his kinsman greetings and +30"]
                 self.pokemons.append(PyGameProjectPokemons
                                      .Spearow(self.rect.x, self.rect.y, pokemons_group, all_sprites))
             self.pokeballs -= 1

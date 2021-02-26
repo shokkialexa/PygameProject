@@ -31,12 +31,12 @@ def pokeball(x, y):
 def start_screen():
     intro_text = ["Правила игры:",
                   "Чтобы отрыть меню, ",
-                  "нажмите 5 посередине между стрелками",
-                  "Чтобы закрыть отрываюшиеся окна,",
-                  " кликните мышью ",
-                  "или нажмите кнопку на клавиатуре",
-                  "Передвигайтесь клавишами стрелок",
-                  "Если вы хотите начать, кликните мышью!"]
+                  "нажмите 5 посередине между стрелками.",
+                  "Чтобы закрыть открываюшиеся окна,",
+                  " кликните мышкой ",
+                  "или нажмите кнопку на клавиатуре.",
+                  "Передвигайтесь клавишами стрелок.",
+                  "Если вы хотите начать, кликните мышкой!"]
     size_for_start_screen = 600, 600
     screen = pygame.display.set_mode(size_for_start_screen)
     screen.fill((0, 0, 0))
@@ -166,10 +166,22 @@ def get_something(screen, something):
             rect = (150, 120, 25, 25)
             new_screen.blit(string, rect)
     except:
-        something_group = pygame.sprite.Group()
-        something_group.add(something)
-        something.set_rect(150, 150)
-        something_group.draw(new_screen)
+        try:
+            list(something)
+            text_coord = 90
+            for line in something:
+                string_rendered = font.render(line, False, pygame.Color('white'))
+                intro_rect = string_rendered.get_rect()
+                text_coord += 10
+                intro_rect.top = text_coord
+                intro_rect.x = 150
+                text_coord += intro_rect.height
+                screen.blit(string_rendered, intro_rect)
+        except:
+            something_group = pygame.sprite.Group()
+            something_group.add(something)
+            something.set_rect(150, 150)
+            something_group.draw(new_screen)
     clock = pygame.time.Clock()
     while True:
         for event in pygame.event.get():
