@@ -222,8 +222,8 @@ else:
             return image
 
         def click(self, pos_x, pos_y):
-            if pos_y > BOARD_SIZE[1] * CELL_SIZE[1] + self.rect.y or \
-                    pos_x > BOARD_SIZE[0] * CELL_SIZE[0] + self.rect.x or pos_x < self.rect.x or \
+            if pos_y >= BOARD_SIZE[1] * CELL_SIZE[1] + self.rect.y or \
+                    pos_x >= BOARD_SIZE[0] * CELL_SIZE[0] + self.rect.x or pos_x < self.rect.x or \
                     pos_y < self.rect.y:
                 return -1
             x = (pos_x - self.rect.x) // CELL_SIZE[0]
