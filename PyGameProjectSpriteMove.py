@@ -59,7 +59,7 @@ else:
             file = open("Data/pokemons.txt", mode="r")
             data = file.read()
             file.close()
-            if not data.find(pokemon):
+            if pokemon in data.split("\n"):
                 return 1
             else:
                 file = open("Data/pokemons.txt", mode="a")
@@ -153,7 +153,7 @@ else:
                     for e in self.pokemons:
                         if e.name_pokemon() == "bulbasauvr":
                             self.append_skill(e, 30)
-                    return "You have this pokemon, your pokemon get +30"
+                            return "You have this pokemon, your pokemon get +30"
                 self.pokemons.append(PyGameProjectPokemons
                                      .Bulbasaur(self.rect.x, self.rect.y, pokemons_group, all_sprites))
             if c == 2:
@@ -161,7 +161,7 @@ else:
                     for e in self.pokemons:
                         if e.name_pokemon() == "charmander":
                             self.append_skill(e, 30)
-                    return "You have this pokemon, your pokemon get +30"
+                            return "You have this pokemon, your pokemon get +30"
                 self.pokemons.append(PyGameProjectPokemons
                                      .Charmander(self.rect.x, self.rect.y, pokemons_group, all_sprites))
             if c == 3:
@@ -169,7 +169,7 @@ else:
                     for e in self.pokemons:
                         if e.name_pokemon() == "squrtle":
                             self.append_skill(e, 30)
-                    return "You have this pokemon, your pokemon get +30"
+                            return "You have this pokemon, your pokemon get +30"
                 self.pokemons.append(PyGameProjectPokemons
                                      .Squrtle(self.rect.x, self.rect.y, pokemons_group, all_sprites))
             if c == 4:
@@ -188,6 +188,7 @@ else:
                     return "You have this pokemon, your pokemon get +30"
                 self.pokemons.append(PyGameProjectPokemons
                                      .Spearow(self.rect.x, self.rect.y, pokemons_group, all_sprites))
+            self.pokeballs -= 1
             return self.pokemons[-1]
 
         def append_skill(self, pokemon, skill):
@@ -230,7 +231,7 @@ else:
             return self.can_move(x, y)
 
         def can_move(self, x, y):
-            if BOARD[y][x] in ["water", "tree", "cocostree"]:
+            if BOARD[y][x] in ["water", "tree", "cocostree", "well", "rock"]:
                 return 1
             if BOARD[y][x] in ["store", "house"]:
                 return 0
